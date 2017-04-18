@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Navigator from 'navigator';
+import { Navigator } from 'react-native';
 
-import Projects from './Projects';
-import AddProject from './AddProject';
+import Projects from './../Projects';
+import AddProject from './../AddProject';
 
 class Router extends React.Component {
 
@@ -27,16 +27,10 @@ class Router extends React.Component {
   };
 
   render() {
-    const { navigatorConfig } = this.props;
-
     return (
         <Navigator
           initialRoute={{ screen: 'Projects' }}
           renderScene={ (route, nav) => { return this.renderScene(route, nav) } }
-          configureScene={ (route, routeStack) => {
-            console.log(navigatorConfig);
-            return navigatorConfig;
-          } }
         />
     )
   }
